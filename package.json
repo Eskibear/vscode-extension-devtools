@@ -1,0 +1,92 @@
+{
+	"name": "extension-devtools",
+	"publisher": "eskibear",
+	"displayName": "extension-devtools",
+	"description": "Dev Tools of VS Code Extension",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.65.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"repository": {
+		"url": "https://github.com/Eskibear/vscode-extension-devtools",
+		"type": "git"
+	},
+	"activationEvents": [
+		"onView:extension-devtools.view.commands",
+		"onCommand:extension-devtools.executeCommand"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension-devtools.openConfigFile",
+				"title": "Open Config File",
+				"icon": "$(pencil)",
+				"category": "ExtDev"
+			},
+			{
+				"command": "extension-devtools.executeCommand",
+				"title": "Run command...",
+				"icon": "$(play)",
+				"category": "ExtDev"
+			}
+		],
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"icon": "$(tools)",
+					"id": "extension-devtools",
+					"title": "Extension Devtools"
+				}
+			]
+		},
+		"views": {
+			"extension-devtools": [
+				{
+					"id": "extension-devtools.view.commands",
+					"name": "Commands"
+				}
+			]
+		},
+		"menus": {
+			"view/title": [
+				{
+					"command": "extension-devtools.openConfigFile",
+					"when": "view == extension-devtools.view.commands",
+					"group": "navigation@0a"
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "extension-devtools.executeCommand",
+					"when": "view == extension-devtools.view.commands",
+					"group": "inline"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.2.2",
+		"@types/node": "14.x",
+		"@types/vscode": "^1.65.0",
+		"@typescript-eslint/eslint-plugin": "^4.26.0",
+		"@typescript-eslint/parser": "^4.26.0",
+		"eslint": "^7.27.0",
+		"glob": "^7.1.7",
+		"mocha": "^9.2.2",
+		"typescript": "^4.3.2",
+		"vscode-test": "^1.5.2"
+	}
+}
