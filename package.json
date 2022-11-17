@@ -3,12 +3,13 @@
 	"publisher": "eskibear",
 	"displayName": "Extension Dev Tools",
 	"description": "Dev Tools of VS Code Extension",
-	"version": "0.0.2",
+	"version": "0.1.0",
 	"engines": {
 		"vscode": "^1.65.0"
 	},
 	"categories": [
-		"Other"
+		"Other",
+		"Testing"
 	],
 	"repository": {
 		"url": "https://github.com/Eskibear/vscode-extension-devtools",
@@ -16,7 +17,9 @@
 	},
 	"activationEvents": [
 		"onView:extension-devtools.view.commands",
-		"onCommand:extension-devtools.executeCommand"
+		"onView:extension-devtools.view.codicons",
+		"onCommand:extension-devtools.executeCommand",
+		"onCommand:extension-devtools.openConfigFile"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
