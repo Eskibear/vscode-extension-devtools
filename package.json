@@ -25,13 +25,19 @@
 				"command": "extension-devtools.openConfigFile",
 				"title": "Open Config File",
 				"icon": "$(pencil)",
-				"category": "ExtDev"
+				"category": "Extension DevTools"
 			},
 			{
 				"command": "extension-devtools.executeCommand",
 				"title": "Run command...",
 				"icon": "$(play)",
-				"category": "ExtDev"
+				"category": "Extension DevTools"
+			},
+			{
+				"command": "extension-devtools.view.codicon.copy",
+				"title": "Copy",
+				"icon": "$(copy)",
+				"category": "Extension DevTools"
 			}
 		],
 		"viewsContainers": {
@@ -48,6 +54,10 @@
 				{
 					"id": "extension-devtools.view.commands",
 					"name": "Commands"
+				},
+				{
+					"id": "extension-devtools.view.codicons",
+					"name": "Codicons"
 				}
 			]
 		},
@@ -63,6 +73,11 @@
 				{
 					"command": "extension-devtools.executeCommand",
 					"when": "view == extension-devtools.view.commands",
+					"group": "inline"
+				},
+				{
+					"command": "extension-devtools.view.codicon.copy",
+					"when": "view == extension-devtools.view.codicons",
 					"group": "inline"
 				}
 			]

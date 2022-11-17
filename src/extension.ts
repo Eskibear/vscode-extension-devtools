@@ -1,8 +1,9 @@
 import * as vscode from 'vscode';
+import { codiconsProvider, init as initCodicons } from './codicons';
 import { init as initCommands, commandHistoryProvider, runCommand, openConfigFile, Execution } from './commands';
 
-export function activate(context: vscode.ExtensionContext) {
-	
+export async function activate(context: vscode.ExtensionContext) {
+
 	initCommands(context);
 	context.subscriptions.push(vscode.commands.registerCommand('extension-devtools.openConfigFile', openConfigFile));
 	context.subscriptions.push(vscode.commands.registerCommand('extension-devtools.executeCommand', async (item?: Execution) => {
@@ -28,6 +29,11 @@ export function activate(context: vscode.ExtensionContext) {
 	}));
 
 	context.subscriptions.push(vscode.window.registerTreeDataProvider("extension-devtools.view.commands", commandHistoryProvider));
+
+	// codicons
+	await initCodicons(context);
+	context.subscriptions.push(vscode.window.registerTreeDataProvider("extension-devtools.view.codicons", codiconsProvider));
+	context.subscriptions.push(vscode.commands.registerCommand("extension-devtools.view.codicon.copy", (codicon: string) => vscode.env.clipboard.writeText(codicon)));
 }
 
 
