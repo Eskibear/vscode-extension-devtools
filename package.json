@@ -34,6 +34,12 @@
 				"category": "Extension DevTools"
 			},
 			{
+				"command": "extension-devtools.view.command.remove",
+				"title": "Remove",
+				"icon": "$(remove)",
+				"category": "Extension DevTools"
+			},
+			{
 				"command": "extension-devtools.view.codicon.copy",
 				"title": "Copy",
 				"icon": "$(copy)",
@@ -64,6 +70,11 @@
 		"menus": {
 			"view/title": [
 				{
+					"command": "extension-devtools.executeCommand",
+					"when": "view == extension-devtools.view.commands",
+					"group": "navigation@05"
+				},
+				{
 					"command": "extension-devtools.openConfigFile",
 					"when": "view == extension-devtools.view.commands",
 					"group": "navigation@0a"
@@ -72,6 +83,11 @@
 			"view/item/context": [
 				{
 					"command": "extension-devtools.executeCommand",
+					"when": "view == extension-devtools.view.commands",
+					"group": "inline"
+				},
+				{
+					"command": "extension-devtools.view.command.remove",
 					"when": "view == extension-devtools.view.commands",
 					"group": "inline"
 				},

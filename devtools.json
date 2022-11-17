@@ -1,0 +1,15 @@
+{
+  "execution": [
+    {
+      "command": "myExtension.cleanGlobState",
+      "args": []
+    },
+    {
+      "command": "myExtension.sample.command",
+      "args": [
+        "arg1",
+        "arg2"
+      ]
+    }
+  ]
+}

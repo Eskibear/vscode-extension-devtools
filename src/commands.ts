@@ -3,7 +3,6 @@ import * as vscode from 'vscode';
 export interface Execution {
     command: string;
     args?: any[];
-    timestamp: number;
 }
 
 let history: Execution[] = [];
@@ -63,26 +62,25 @@ export async function runCommand(command: string, ...args: any) {
 };
 
 function updateHistory(command: string, args: any) {
-    const lastRun = history.find((e) => e.command === command && JSON.stringify(e.args) === JSON.stringify(args));
-    if (lastRun) {
-        lastRun.timestamp = Date.now();
-    } else {
+    const lastRun = history.find((e) => e?.command === command && JSON.stringify(e?.args) === JSON.stringify(args));
+    if (!lastRun) {
         history.push({
             command,
-            args,
-            timestamp: Date.now()
+            args
         });
     }
-    history.sort((a, b) => b.timestamp - a.timestamp);
     eventEmitter.fire(undefined);
     saveHistoryToFile();
 }
 
-function remove(e: Execution) {
+export function removeExecution(e: Execution) {
     const index = history.indexOf(e);
     if (index >= 0) {
         delete history[index];
     }
+    history = history.filter(Boolean);
+    eventEmitter.fire(undefined);
+    saveHistoryToFile();
 }
 
 async function saveHistoryToFile() {
