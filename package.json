@@ -47,6 +47,12 @@
 				"title": "Copy",
 				"icon": "$(copy)",
 				"category": "Extension DevTools"
+			},
+			{
+				"command": "extension-devtools.view.codicon.update",
+				"title": "Update",
+				"icon": "$(refresh)",
+				"category": "Extension DevTools"
 			}
 		],
 		"viewsContainers": {
@@ -80,6 +86,11 @@
 				{
 					"command": "extension-devtools.openConfigFile",
 					"when": "view == extension-devtools.view.commands",
+					"group": "navigation@0a"
+				},
+				{
+					"command": "extension-devtools.view.codicon.update",
+					"when": "view == extension-devtools.view.codicons",
 					"group": "navigation@0a"
 				}
 			],

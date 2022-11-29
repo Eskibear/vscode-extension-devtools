@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { codiconsProvider, init as initCodicons } from './codicons';
+import { codiconsProvider, init as initCodicons, update as updateCodiconMapping } from './codicons';
 import { init as initCommands, commandHistoryProvider, runCommand, openConfigFile, Execution, removeExecution } from './commands';
 
 export async function activate(context: vscode.ExtensionContext) {
@@ -34,6 +34,7 @@ export async function activate(context: vscode.ExtensionContext) {
 	await initCodicons(context);
 	context.subscriptions.push(vscode.window.registerTreeDataProvider("extension-devtools.view.codicons", codiconsProvider));
 	context.subscriptions.push(vscode.commands.registerCommand("extension-devtools.view.codicon.copy", (codicon: string) => vscode.env.clipboard.writeText(codicon)));
+	context.subscriptions.push(vscode.commands.registerCommand("extension-devtools.view.codicon.update", () => updateCodiconMapping(context)));
 }
 
 
