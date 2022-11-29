@@ -100,3 +100,8 @@ export async function downloadFile(targetUrl: string, readContent?: boolean, cus
 export function randomUUID() {
     return crypto.randomUUID();
 }
+
+export async function copyToClipboard(content: string) {
+    await vscode.env.clipboard.writeText(content);
+    await vscode.window.showInformationMessage(`Copied:\n\n${content}`);
+}

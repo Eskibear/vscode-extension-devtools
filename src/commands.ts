@@ -97,3 +97,11 @@ export function openConfigFile() {
     const configFile = vscode.Uri.joinPath(storageUri, FILENAME);
     vscode.commands.executeCommand("vscode.open", configFile);
 }
+
+export function toCommandUri(e: Execution) {
+    let ret = `commmand:${e.command}`;
+    if (e.args) {
+        ret += `?${encodeURIComponent(JSON.stringify(e.args))}`;
+    }
+    return ret;
+}

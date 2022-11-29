@@ -19,7 +19,8 @@
 		"onView:extension-devtools.view.commands",
 		"onView:extension-devtools.view.codicons",
 		"onCommand:extension-devtools.executeCommand",
-		"onCommand:extension-devtools.openConfigFile"
+		"onCommand:extension-devtools.openConfigFile",
+		"onCommand:extension-devtools.view.codicon.update"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -43,6 +44,12 @@
 				"category": "Extension DevTools"
 			},
 			{
+				"command": "extension-devtools.view.command.copyUri",
+				"title": "Copy Command Uri",
+				"icon": "$(copy)",
+				"category": "Extension DevTools"
+			},
+			{
 				"command": "extension-devtools.view.codicon.copy",
 				"title": "Copy",
 				"icon": "$(copy)",
@@ -50,7 +57,7 @@
 			},
 			{
 				"command": "extension-devtools.view.codicon.update",
-				"title": "Update",
+				"title": "Update Codicons List",
 				"icon": "$(refresh)",
 				"category": "Extension DevTools"
 			}
@@ -102,6 +109,11 @@
 				},
 				{
 					"command": "extension-devtools.view.command.remove",
+					"when": "view == extension-devtools.view.commands",
+					"group": "inline"
+				},
+				{
+					"command": "extension-devtools.view.command.copyUri",
 					"when": "view == extension-devtools.view.commands",
 					"group": "inline"
 				},
