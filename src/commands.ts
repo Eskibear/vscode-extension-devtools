@@ -99,8 +99,8 @@ export function openConfigFile() {
 }
 
 export function toCommandUri(e: Execution) {
-    let ret = `commmand:${e.command}`;
-    if (e.args) {
+    let ret = `command:${e.command}`;
+    if (e.args?.length) {
         ret += `?${encodeURIComponent(JSON.stringify(e.args))}`;
     }
     return ret;
