@@ -3,7 +3,7 @@
 	"publisher": "eskibear",
 	"displayName": "Extension Dev Tools",
 	"description": "Dev Tools of VS Code Extension",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"engines": {
 		"vscode": "^1.65.0"
 	},
