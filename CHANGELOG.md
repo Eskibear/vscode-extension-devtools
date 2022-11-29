@@ -4,6 +4,10 @@ All notable changes to the "extension-devtools" extension will be documented in 
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## 0.2.0
+- Support to copy command Uri with args.
+- Pre-pack codicon mapping.json, allow to update on demand.
+
 ## 0.1.0
 - Add Codicon viewer.
 - Support to add/remove commands.
