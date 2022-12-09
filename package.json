@@ -18,7 +18,7 @@
 	"activationEvents": [
 		"onView:extension-devtools.view.commands",
 		"onView:extension-devtools.view.codicons",
-		"onCommand:extension-devtools.executeCommand",
+		"onCommand:extension-devtools.addCommand",
 		"onCommand:extension-devtools.openConfigFile",
 		"onCommand:extension-devtools.view.codicon.update"
 	],
@@ -32,9 +32,9 @@
 				"category": "Extension DevTools"
 			},
 			{
-				"command": "extension-devtools.executeCommand",
-				"title": "Run command...",
-				"icon": "$(play)",
+				"command": "extension-devtools.addCommand",
+				"title": "Add command...",
+				"icon": "$(add)",
 				"category": "Extension DevTools"
 			},
 			{
@@ -59,6 +59,12 @@
 				"command": "extension-devtools.view.codicon.update",
 				"title": "Update Codicons List",
 				"icon": "$(refresh)",
+				"category": "Extension DevTools"
+			},
+			{
+				"command": "extension-devtools.view.command.run",
+				"title": "Run",
+				"icon": "$(play)",
 				"category": "Extension DevTools"
 			}
 		],
@@ -86,7 +92,7 @@
 		"menus": {
 			"view/title": [
 				{
-					"command": "extension-devtools.executeCommand",
+					"command": "extension-devtools.addCommand",
 					"when": "view == extension-devtools.view.commands",
 					"group": "navigation@05"
 				},
@@ -103,7 +109,7 @@
 			],
 			"view/item/context": [
 				{
-					"command": "extension-devtools.executeCommand",
+					"command": "extension-devtools.view.command.run",
 					"when": "view == extension-devtools.view.commands",
 					"group": "inline"
 				},

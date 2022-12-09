@@ -61,7 +61,7 @@ export async function runCommand(command: string, ...args: any) {
     console.log("result:", result);
 };
 
-function updateHistory(command: string, args: any) {
+export function updateHistory(command: string, args: any) {
     const lastRun = history.find((e) => e?.command === command && JSON.stringify(e?.args) === JSON.stringify(args));
     if (!lastRun) {
         history.push({
