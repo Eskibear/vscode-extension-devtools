@@ -4,6 +4,9 @@ All notable changes to the "extension-devtools" extension will be documented in 
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## 0.2.2
+- Fixed: cannot run any new commands after existing command is ever selected.
+
 ## 0.2.1
 - Fixed: wrong result when copying command Uri.
 
