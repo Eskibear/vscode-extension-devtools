@@ -1,3 +1,7 @@
+on:
+  workflow_dispatch
+
+
 name: Pre-release to VS marketplace
 jobs:
   deploy:
