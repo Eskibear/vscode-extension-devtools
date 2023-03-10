@@ -62,6 +62,21 @@
 				"title": "Run",
 				"icon": "$(play)",
 				"category": "Extension DevTools"
+			},
+			{
+				"command": "extension-devtools.treeItemInspector.enable",
+				"title": "Enable Tree Item Inspector",
+				"category": "Extension DevTools"
+			},
+			{
+				"command": "extension-devtools.treeItemInspector.disable",
+				"title": "Disable Tree Item Inspector",
+				"category": "Extension DevTools"
+			},
+			{
+				"command": "extension-devtools.treeItem.inspect",
+				"title": "Developer: Print to Console",
+				"category": "Extension DevTools"
 			}
 		],
 		"viewsContainers": {
@@ -123,6 +138,24 @@
 					"command": "extension-devtools.view.codicon.copy",
 					"when": "view == extension-devtools.view.codicons",
 					"group": "inline"
+				},
+				{
+					"command": "extension-devtools.treeItem.inspect",
+					"when": "extension-devtools.treeItemInspector:enabled"
+				}
+			],
+			"commandPalette": [
+				{
+					"command": "extension-devtools.treeItemInspector.enable",
+					"when": "!extension-devtools.treeItemInspector:enabled"
+				},
+				{
+					"command": "extension-devtools.treeItemInspector.disable",
+					"when": "extension-devtools.treeItemInspector:enabled"
+				},
+				{
+					"command": "extension-devtools.treeItem.inspect",
+					"when": "false"
 				}
 			]
 		}

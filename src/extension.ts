@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import { codiconsProvider, init as initCodicons, update as updateCodiconMapping } from './codicons';
 import { init as initCommands, commandHistoryProvider, runCommand, openConfigFile, Execution, removeExecution, toCommandUri, updateHistory } from './commands';
+import { init as TreeItemInspector } from './treeItemInspector';
 import { copyToClipboard } from './utils';
 
 export async function activate(context: vscode.ExtensionContext) {
@@ -18,6 +19,8 @@ export async function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.window.registerTreeDataProvider("extension-devtools.view.codicons", codiconsProvider));
 	context.subscriptions.push(vscode.commands.registerCommand("extension-devtools.view.codicon.copy", (codicon: string) => copyToClipboard(codicon)));
 	context.subscriptions.push(vscode.commands.registerCommand("extension-devtools.view.codicon.update", () => updateCodiconMapping(context)));
+	// tree items
+	await TreeItemInspector(context);
 }
 
 
