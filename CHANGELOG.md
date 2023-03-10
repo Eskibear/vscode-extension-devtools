@@ -4,6 +4,9 @@ All notable changes to the "extension-devtools" extension will be documented in 
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## 0.3.0
+- Add tree item inspector.
+
 ## 0.2.2
 - Fixed: cannot run any new commands after existing command is ever selected.
 
