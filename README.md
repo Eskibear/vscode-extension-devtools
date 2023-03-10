@@ -14,7 +14,9 @@ View all available Codicons, shortcut to copy id.
 
 ## Inspect Tree Items
 Enable Tree Item Inspector from Command Palette.
+
 ![Enable Inspector](images/enable-tree-item-inspector.png)
 
 Right click on the tree item you want to inspect, select `Developer: Print to Console`. Then you will see the object printed to Developer Console.
+
 ![Inspect Tree Item](images/inspect-tree-item.png)
