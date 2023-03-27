@@ -1,4 +1,3 @@
-import { get } from "http";
 import * as vscode from "vscode";
 import { downloadFile } from "./utils";
 
@@ -12,13 +11,13 @@ export async function update(context:vscode.ExtensionContext) {
         const tempFilePath = await downloadFile(mappingUrl);
         progress.report({
             increment: 50
-        })
+        });
         const src = vscode.Uri.file(tempFilePath);
         const dest = vscode.Uri.file(context.asAbsolutePath("resources/mapping.json"));
         progress.report({message: "Copying mapping.json into extension directory..."});
         await vscode.workspace.fs.copy(src, dest, { overwrite: true });
         progress.report({increment: 30});
-        progress.report({message: "Updating mapping..."})
+        progress.report({message: "Updating mapping..."});
         await init(context);
         progress.report({increment: 20});
     });
