@@ -8,6 +8,7 @@ export interface Execution {
 let history: Execution[] = [];
 const FILENAME = "devtools.json";
 let storageUri: vscode.Uri;
+const OPTION_VIEW_OUTPUT = "View Details";
 
 export async function init(context: vscode.ExtensionContext) {
     storageUri = context.storageUri ?? context.extensionUri;
@@ -58,8 +59,11 @@ export async function runCommand(command: string, ...args: any) {
     console.log("runCommand:", { command, args });
     updateHistory(command, args);
     const result = await vscode.commands.executeCommand(command, ...args);
-    vscode.window.showInformationMessage(`command ${command} successfully executed.`);
     console.log("result:", result);
+    const option = await vscode.window.showInformationMessage(`command ${command} successfully executed.`, OPTION_VIEW_OUTPUT);
+    if (option === OPTION_VIEW_OUTPUT) {
+        await vscode.commands.executeCommand("workbench.action.toggleDevTools");
+    }
 };
 
 export function updateHistory(command: string, args: any) {
