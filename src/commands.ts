@@ -26,7 +26,7 @@ async function initHistoryFromFile(configFile: vscode.Uri) {
         if (config.execution) {
             history = [...config.execution];
         }
-    } catch (error) {}
+    } catch (error) { }
     eventEmitter.fire(undefined);
 }
 
@@ -55,9 +55,10 @@ export function getHistory() {
 }
 
 export async function runCommand(command: string, ...args: any) {
-	console.log("runCommand:", {command, args});
+    console.log("runCommand:", { command, args });
     updateHistory(command, args);
-	const result = await vscode.commands.executeCommand(command, ...args);
+    const result = await vscode.commands.executeCommand(command, ...args);
+    vscode.window.showInformationMessage(`command ${command} successfully executed.`);
     console.log("result:", result);
 };
 
@@ -89,7 +90,7 @@ async function saveHistoryToFile() {
         await vscode.workspace.fs.writeFile(configFile, Buffer.from(JSON.stringify({
             execution: history
         }, null, 2)));
-    } catch (error) {}
+    } catch (error) { }
 }
 
 
