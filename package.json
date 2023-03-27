@@ -1,8 +1,8 @@
 {
 	"name": "extension-devtools",
 	"publisher": "eskibear",
-	"displayName": "Extension Dev Tools",
-	"description": "Dev Tools of VS Code Extension",
+	"displayName": "VS Code Extension Dev Tools",
+	"description": "Tools for developing VSCode Extensions.",
 	"version": "0.3.0",
 	"engines": {
 		"vscode": "^1.75.0"
