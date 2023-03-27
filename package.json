@@ -127,7 +127,7 @@
 				{
 					"command": "extension-devtools.view.command.remove",
 					"when": "view == extension-devtools.view.commands",
-					"group": "inline"
+					"group": "actions"
 				},
 				{
 					"command": "extension-devtools.view.command.copyUri",
